@@ -9,7 +9,7 @@ const registerUser = async (req, res) => {
         //extract user info req body
         const { username, email, password, role } = req.body;
         //check user is already exist in our db.
-        const userExisted = await User.findOne({ $or: [{ username }, { password }] });
+        const userExisted = await User.findOne({ $or: [{ username }, { email }] });
         console.log("1");
         
         if (userExisted) {
